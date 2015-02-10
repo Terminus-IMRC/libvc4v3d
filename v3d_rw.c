@@ -31,7 +31,7 @@ struct {
 	v3d_reg_addr_map[V3D_##fname_suf].name = STR(V3D_##fname_suf); \
 	v3d_reg_addr_map[V3D_##fname_suf].rw = bit_rw;
 
-void v3d_init()
+void v3d_rw_init()
 {
 	ram_add_node(TVER, 0x00000, 31, 24, RW_RO);
 	ram_add_node(IDSTR_V, 0x00000, 7, 0, RW_RO);

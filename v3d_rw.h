@@ -87,7 +87,7 @@
 		/* 0x00f20 */ V3D_L2CARE, V3D_VCMBE, V3D_VCMRE, V3D_VCDI, V3D_VCDE, V3D_VDWE, V3D_VPMEAS, V3D_VPMEFNA, V3D_VPMEWNA, V3D_VPMERNA, V3D_VPMERR, V3D_VPMEWR, V3D_VPAERRGL, V3D_VPAEBRGL, V3D_VPAERGS, V3D_VPAEABB,
 	} v3d_field_name_t;
 
-	void v3d_init();
+	void v3d_rw_init();
 	uint32_t v3d_read(uint32_t *p, v3d_field_name_t fname);
 	void v3d_write(uint32_t *p, v3d_field_name_t fname, uint32_t value);
 
