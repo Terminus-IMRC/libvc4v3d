@@ -88,6 +88,7 @@
 	} v3d_field_name_t;
 
 	void v3d_rw_init();
+	void v3d_rw_finalize();
 	uint32_t v3d_read(uint32_t *p, v3d_field_name_t fname);
 	void v3d_write(uint32_t *p, v3d_field_name_t fname, uint32_t value);
 

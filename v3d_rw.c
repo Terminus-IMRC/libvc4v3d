@@ -392,6 +392,15 @@ void v3d_rw_init()
 	ram_add_node(VPAEABB, 0x00f20, 0, 0, RW_RO);
 }
 
+void v3d_rw_finalize()
+{
+	static _Bool is_called = 0;
+
+	if (is_called)
+		return;
+	is_called = !0;
+}
+
 uint32_t v3d_read(uint32_t *p, v3d_field_name_t fname)
 {
 	if ((fname < 0) || (fname >= V3D_NFNAME)) {
