@@ -33,6 +33,12 @@ struct {
 
 void v3d_rw_init()
 {
+	static _Bool is_called = 0;
+
+	if (is_called)
+		return;
+	is_called = !0;
+
 	ram_add_node(TVER, 0x00000, 31, 24, RW_RO);
 	ram_add_node(IDSTR_V, 0x00000, 7, 0, RW_RO);
 	ram_add_node(IDSTR_3, 0x00000, 15, 8, RW_RO);
