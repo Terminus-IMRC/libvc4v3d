@@ -5,6 +5,7 @@
 #include "v3d_rw.h"
 
 	void v3d_reset_init();
+	void v3d_reset_finalize();
 
 	void v3d_reset_all(uint32_t *p);
 
