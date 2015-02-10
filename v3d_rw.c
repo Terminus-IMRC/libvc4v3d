@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <inttypes.h>
 #include "v3d_rw.h"
+#include "error.h"
 
 #define generate_mask(n, sr) ((((((n))>=32?0:(1<<((n))))-1)<<((sr))))
 #define generate_mask_with_bit_range(bit_from, bit_to) ((generate_mask(((bit_from))-((bit_to))+1, ((bit_to)))))
@@ -404,10 +405,10 @@ void v3d_rw_finalize()
 uint32_t v3d_read(uint32_t *p, v3d_field_name_t fname)
 {
 	if ((fname < 0) || (fname >= V3D_NFNAME)) {
-		fprintf(stderr, "%s:%d: error: field name out of range: %d\n", __FILE__, __LINE__, fname);
+		error("field name out of range: %d\n", fname);
 		exit(EXIT_FAILURE);
 	} else if (v3d_reg_addr_map[fname].rw == RW_WO) {
-		fprintf(stderr, "%s:%d: error: write only register: %s\n", __FILE__, __LINE__, v3d_reg_addr_map[fname].name);
+		error("write only register: %s\n", v3d_reg_addr_map[fname].name);
 		exit(EXIT_FAILURE);
 	}
 
@@ -417,13 +418,13 @@ uint32_t v3d_read(uint32_t *p, v3d_field_name_t fname)
 void v3d_write(uint32_t *p, v3d_field_name_t fname, uint32_t value)
 {
 	if ((fname < 0) || (fname >= V3D_NFNAME)) {
-		fprintf(stderr, "%s:%d: error: field name out of range: %d\n", __FILE__, __LINE__, fname);
+		error("field name out of range: %d\n", fname);
 		exit(EXIT_FAILURE);
 	} else if (v3d_reg_addr_map[fname].rw == RW_RO) {
-		fprintf(stderr, "%s:%d: error: read only register: %s\n", __FILE__, __LINE__, v3d_reg_addr_map[fname].name);
+		error("read only register: %s\n", v3d_reg_addr_map[fname].name);
 		exit(EXIT_FAILURE);
 	} else if (value > (v3d_reg_addr_map[fname].mask >> v3d_reg_addr_map[fname].sr)) {
-		fprintf(stderr, "%s:%d: error: too big value for the register %s: %"PRIu32"\n", __FILE__, __LINE__, v3d_reg_addr_map[fname].name, value);
+		error("too big value for the register %s: %"PRIu32"\n", v3d_reg_addr_map[fname].name, value);
 		exit(EXIT_FAILURE);
 	}
 
