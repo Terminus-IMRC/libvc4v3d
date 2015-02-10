@@ -2,6 +2,17 @@
 #include "v3d_rw.h"
 #include "v3d_reset.h"
 
+void v3d_reset_init()
+{
+	static _Bool is_called = 0;
+
+	if (is_called)
+		return;
+	is_called = !0;
+
+	v3d_rw_init();
+}
+
 void v3d_reset_all(uint32_t *p)
 {
 	v3d_reset_SCRATCH(p);

@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include "v3d_rw.h"
 
+	void v3d_reset_init();
+
 	void v3d_reset_all(uint32_t *p);
 
 	void v3d_reset_SCRATCH(uint32_t *p);
