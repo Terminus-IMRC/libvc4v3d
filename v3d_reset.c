@@ -60,33 +60,33 @@ void v3d_reset_SCRATCH(uint32_t *p)
 
 void v3d_reset_L2CACTL(uint32_t *p)
 {
-	v3d_write(p, V3D_L2CCLR, 0);
-	v3d_write(p, V3D_L2CDIS, 0);
-	v3d_write(p, V3D_L2CENA, 0);
+	v3d_write(p, V3D_L2CCLR, 1);
+	v3d_write(p, V3D_L2CDIS, 1);
+	v3d_write(p, V3D_L2CENA, 1);
 }
 
 void v3d_reset_INTCTL(uint32_t *p)
 {
-	v3d_write(p, V3D_INT_SPILLUSE, 0);
-	v3d_write(p, V3D_INT_OUTTOMEM, 0);
-	v3d_write(p, V3D_INT_FLDONE, 0);
-	v3d_write(p, V3D_INT_FRDONE, 0);
+	v3d_write(p, V3D_INT_SPILLUSE, 1);
+	v3d_write(p, V3D_INT_OUTTOMEM, 1);
+	v3d_write(p, V3D_INT_FLDONE, 1);
+	v3d_write(p, V3D_INT_FRDONE, 1);
 }
 
 void v3d_reset_INTENA(uint32_t *p)
 {
-	v3d_write(p, V3D_EI_SPILLUSE, 0);
-	v3d_write(p, V3D_EI_OUTTOMEM, 0);
-	v3d_write(p, V3D_EI_FLDONE, 0);
-	v3d_write(p, V3D_EI_FRDONE, 0);
+	v3d_write(p, V3D_EI_SPILLUSE, 1);
+	v3d_write(p, V3D_EI_OUTTOMEM, 1);
+	v3d_write(p, V3D_EI_FLDONE, 1);
+	v3d_write(p, V3D_EI_FRDONE, 1);
 }
 
 void v3d_reset_INTDIS(uint32_t *p)
 {
-	v3d_write(p, V3D_DI_SPILLUSE, 0);
-	v3d_write(p, V3D_DI_OUTTOMEM, 0);
-	v3d_write(p, V3D_DI_FLDONE, 0);
-	v3d_write(p, V3D_DI_FRDONE, 0);
+	v3d_write(p, V3D_DI_SPILLUSE, 1);
+	v3d_write(p, V3D_DI_OUTTOMEM, 1);
+	v3d_write(p, V3D_DI_FLDONE, 1);
+	v3d_write(p, V3D_DI_FRDONE, 1);
 }
 
 void v3d_reset_CTnCS(uint32_t *p)
@@ -97,16 +97,16 @@ void v3d_reset_CTnCS(uint32_t *p)
 
 void v3d_reset_CT0CS(uint32_t *p)
 {
-	v3d_write(p, V3D_CT0CS_CTRSTA, 0);
-	v3d_write(p, V3D_CT0CS_CTRUN, 0);
-	v3d_write(p, V3D_CT0CS_CTSUBS, 0);
+	v3d_write(p, V3D_CT0CS_CTRSTA, 1);
+	v3d_write(p, V3D_CT0CS_CTRUN, 1);
+	v3d_write(p, V3D_CT0CS_CTSUBS, 1);
 }
 
 void v3d_reset_CT1CS(uint32_t *p)
 {
-	v3d_write(p, V3D_CT1CS_CTRSTA, 0);
-	v3d_write(p, V3D_CT1CS_CTRUN, 0);
-	v3d_write(p, V3D_CT1CS_CTSUBS, 0);
+	v3d_write(p, V3D_CT1CS_CTRSTA, 1);
+	v3d_write(p, V3D_CT1CS_CTRUN, 1);
+	v3d_write(p, V3D_CT1CS_CTSUBS, 1);
 }
 
 void v3d_reset_CTnEA(uint32_t *p)
@@ -149,23 +149,23 @@ void v3d_reset_CTnLC(uint32_t *p)
 
 void v3d_reset_CT0LC(uint32_t *p)
 {
-	v3d_write(p, V3D_CT0LC_CTLLCM, 0);
-	v3d_write(p, V3D_CT0LC_CTLSLCS, 0);
+	v3d_write(p, V3D_CT0LC_CTLLCM, 1);
+	v3d_write(p, V3D_CT0LC_CTLSLCS, 1);
 }
 void v3d_reset_CT1LC(uint32_t *p)
 {
-	v3d_write(p, V3D_CT1LC_CTLLCM, 0);
-	v3d_write(p, V3D_CT1LC_CTLSLCS, 0);
+	v3d_write(p, V3D_CT1LC_CTLLCM, 1);
+	v3d_write(p, V3D_CT1LC_CTLSLCS, 1);
 }
 
 void v3d_reset_BFC(uint32_t *p)
 {
-	v3d_write(p, V3D_BMFCT, 0);
+	v3d_write(p, V3D_BMFCT, 1);
 }
 
 void v3d_reset_RFC(uint32_t *p)
 {
-	v3d_write(p, V3D_RMFCT, 0);
+	v3d_write(p, V3D_RMFCT, 1);
 }
 
 void v3d_reset_BPOA(uint32_t *p)
@@ -237,10 +237,10 @@ void v3d_reset_SRQUL(uint32_t *p)
 
 void v3d_reset_SRQCS(uint32_t *p)
 {
-	v3d_write(p, V3D_QPURQCC, 0);
-	v3d_write(p, V3D_QPURQCM, 0);
-	v3d_write(p, V3D_QPURQERR, 0);
-	v3d_write(p, V3D_QPURQL, 0);
+	v3d_write(p, V3D_QPURQCC, 1);
+	v3d_write(p, V3D_QPURQCM, 1);
+	v3d_write(p, V3D_QPURQERR, 1);
+	v3d_write(p, V3D_QPURQL, 1);
 }
 
 void v3d_reset_VPACNTL(uint32_t *p)
@@ -255,7 +255,7 @@ void v3d_reset_VPACNTL(uint32_t *p)
 
 void v3d_reset_VPMBASE(uint32_t *p)
 {
-	v3d_write(p, V3D_VPMURSV, 0);
+	v3d_write(p, V3D_VPMURSV, 16);
 }
 
 void v3d_reset_PCTRC(uint32_t *p)
