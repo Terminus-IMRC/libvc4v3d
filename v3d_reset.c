@@ -31,8 +31,8 @@ void v3d_reset_all(uint32_t *p)
 	v3d_reset_INTENA(p);
 	v3d_reset_INTDIS(p);
 	v3d_reset_CTnCS(p);
-	v3d_reset_CTnEA(p);
 	v3d_reset_CTnCA(p);
+	v3d_reset_CTnEA(p);
 	v3d_reset_CTnLC(p);
 	v3d_reset_BFC(p);
 	v3d_reset_RFC(p);
