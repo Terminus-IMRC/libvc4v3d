@@ -1,17 +1,19 @@
-TARGETS := libvc4v3d.a
-SRCS := v3d.c v3d_rw.c v3d_reset.c
-OBJS := $(SRCS:%.c=%.c.o)
-DEPS := $(SRCS:%.c=%.c.d)
-ALLDEPS = $(MAKEFILE_LIST_SANS_DEPS)
-CFLAGS := -Wall -Wextra -O2
+all:
+
+include Makefile.info
+
+TARGETS := $(VC4V3D_TARGETS)
+SRCS := $(VC4V3D_SRCS)
+OBJS := $(VC4V3D_OBJS)
+DEPS := $(VC4V3D_DEPS)
+ALLDEPS := $(VC4V3D_ALLDEPS)
+CFLAGS := $(VC4V3D_CFLAGS)
 
 CC := gcc
 AR := ar
 ARFLAGS := cr
 RANLIB := ranlib
 RM := rm -f
-
-all:
 
 VALID_MAKECMDGOALS := all $(TARGETS) %.c.d %.c.o clean
 NONEED_DEP_MAKECMDGOALS := clean
