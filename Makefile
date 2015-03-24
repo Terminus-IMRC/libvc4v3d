@@ -2,12 +2,12 @@ all:
 
 include Makefile.info
 
-TARGETS := $(VC4V3D_TARGETS)
-SRCS := $(VC4V3D_SRCS)
-OBJS := $(VC4V3D_OBJS)
-DEPS := $(VC4V3D_DEPS)
-ALLDEPS := $(VC4V3D_ALLDEPS)
-CFLAGS := $(VC4V3D_CFLAGS)
+TARGETS := $(TARGETS_libvc4v3d)
+SRCS := $(SRCS_libvc4v3d)
+OBJS := $(OBJS_libvc4v3d)
+DEPS := $(DEPS_libvc4v3d)
+ALLDEPS := $(ALLDEPS_libvc4v3d)
+CFLAGS := $(CFLAGS_libvc4v3d)
 
 CC := gcc
 AR := ar

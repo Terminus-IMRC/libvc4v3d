@@ -1,6 +1,6 @@
-VC4V3D_TARGETS := libvc4v3d.a
-VC4V3D_SRCS := v3d.c v3d_rw.c v3d_reset.c
-VC4V3D_OBJS := $(VC4V3D_SRCS:%.c=%.c.o)
-VC4V3D_DEPS := $(VC4V3D_SRCS:%.c=%.c.d)
-VC4V3D_ALLDEPS = $(MAKEFILE_LIST_SANS_DEPS)
-VC4V3D_CFLAGS := -Wall -Wextra -O2
+TARGETS_libvc4v3d := libvc4v3d.a
+SRCS_libvc4v3d := v3d.c v3d_rw.c v3d_reset.c
+OBJS_libvc4v3d := $(SRCS_libvc4v3d:%.c=%.c.o)
+DEPS_libvc4v3d := $(SRCS_libvc4v3d:%.c=%.c.d)
+ALLDEPS_libvc4v3d = $(MAKEFILE_LIST_SANS_DEPS)
+CFLAGS_libvc4v3d := -Wall -Wextra -O2
