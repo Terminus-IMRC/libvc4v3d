@@ -1,4 +1,4 @@
-TARGETS_libvc4v3d := libvc4v3d.a
+TARGET_libvc4v3d := libvc4v3d.a
 SRCS_libvc4v3d := v3d.c v3d_rw.c v3d_reset.c
 OBJS_libvc4v3d := $(SRCS_libvc4v3d:%.c=%.c.o)
 DEPS_libvc4v3d := $(SRCS_libvc4v3d:%.c=%.c.d)

@@ -2,7 +2,7 @@ all:
 
 include Makefile.info
 
-TARGETS := $(TARGETS_libvc4v3d)
+TARGET := $(TARGET_libvc4v3d)
 SRCS := $(SRCS_libvc4v3d)
 OBJS := $(OBJS_libvc4v3d)
 DEPS := $(DEPS_libvc4v3d)
@@ -15,7 +15,7 @@ ARFLAGS := cr
 RANLIB := ranlib
 RM := rm -f
 
-VALID_MAKECMDGOALS := all $(TARGETS) %.c.d %.c.o clean
+VALID_MAKECMDGOALS := all $(TARGET) %.c.d %.c.o clean
 NONEED_DEP_MAKECMDGOALS := clean
 
 EXTRA_MAKECMDGOALS := $(filter-out $(VALID_MAKECMDGOALS), $(MAKECMDGOALS))
@@ -36,9 +36,9 @@ MAKEFILE_LIST_SANS_DEPS := $(filter-out %.c.d, $(MAKEFILE_LIST))
 COMPILE.c = $(CC) $(CFLAGS) $(EXTRACFLAGS) $(CPPFLAGS) $(EXTRACPPFLAGS) $(TARGET_ARCH) -c
 COMPILE.d = $(CC) $(CFLAGS) $(EXTRACFLAGS) $(CPPFLAGS) $(EXTRACPPFLAGS) $(TARGET_ARCH) -M -MP -MT $<.o -MF $@
 
-all: $(TARGETS)
+all: $(TARGET)
 
-libvc4v3d.a: $(OBJS) $(ALLDEPS)
+$(TARGET): $(OBJS) $(ALLDEPS)
 	$(AR) $(ARFLAGS) $@ $(OBJS)
 	$(RANLIB) $@
 
@@ -50,6 +50,6 @@ libvc4v3d.a: $(OBJS) $(ALLDEPS)
 
 .PHONY: clean
 clean:
-	$(RM) $(TARGETS)
+	$(RM) $(TARGET)
 	$(RM) $(OBJS)
 	$(RM) $(DEPS)
