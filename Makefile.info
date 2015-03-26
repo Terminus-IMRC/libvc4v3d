@@ -1,5 +1,5 @@
 TARGET_libvc4v3d := libvc4v3d.a
-SRCS_libvc4v3d := v3d.c v3d_rw.c v3d_reset.c
+SRCS_libvc4v3d := v3d.c v3d_rw.c v3d_reset.c v3d_utils.c
 OBJS_libvc4v3d := $(SRCS_libvc4v3d:%.c=%.c.o)
 DEPS_libvc4v3d := $(SRCS_libvc4v3d:%.c=%.c.d)
 ALLDEPS_libvc4v3d = $(MAKEFILE_LIST_SANS_DEPS)
