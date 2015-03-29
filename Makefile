@@ -1,13 +1,11 @@
 all:
 
-include Makefile.info
-
-TARGET := $(TARGET_libvc4v3d)
-SRCS := $(SRCS_libvc4v3d)
-OBJS := $(OBJS_libvc4v3d)
-DEPS := $(DEPS_libvc4v3d)
-ALLDEPS := $(ALLDEPS_libvc4v3d)
-CFLAGS := $(CFLAGS_libvc4v3d)
+TARGET := libvc4v3d.so
+SRCS := v3d.c v3d_rw.c v3d_reset.c v3d_utils.c
+OBJS := $(SRCS:%.c=%.c.o)
+DEPS := $(SRCS:%.c=%.c.d)
+ALLDEPS = $(MAKEFILE_LIST_SANS_DEPS)
+CFLAGS := -Wall -Wextra -O2
 
 CC := gcc
 AR := ar
@@ -39,7 +37,7 @@ COMPILE.d = $(CC) $(CFLAGS) $(EXTRACFLAGS) $(CPPFLAGS) $(EXTRACPPFLAGS) $(TARGET
 
 all: $(TARGET)
 
-$(TARGET): $(OBJS) $(ALLDEPS)
+libvc4v3d.so: $(OBJS) $(ALLDEPS)
 	$(COMPILE.o) $(OUTPUT_OPTION) $(OBJS)
 
 %.c.o: %.c $(ALLDEPS)
