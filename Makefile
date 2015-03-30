@@ -8,9 +8,6 @@ ALLDEPS = $(MAKEFILE_LIST_SANS_DEPS)
 CFLAGS_LOCAL := -Wall -Wextra -O2
 
 CC := gcc
-AR := ar
-ARFLAGS := cr
-RANLIB := ranlib
 RM := rm -f
 
 VALID_MAKECMDGOALS := all $(TARGET) %.c.d %.c.o clean
