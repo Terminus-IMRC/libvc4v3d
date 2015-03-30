@@ -37,7 +37,7 @@ COMPILE.d = $(CC) $(CFLAGS) $(EXTRACFLAGS) $(CPPFLAGS) $(EXTRACPPFLAGS) $(TARGET
 
 all: $(TARGET)
 
-libvc4v3d.so: $(OBJS) $(ALLDEPS)
+%.so: $(OBJS) $(ALLDEPS)
 	$(COMPILE.o) $(OUTPUT_OPTION) $(OBJS)
 
 %.c.o: %.c $(ALLDEPS)
