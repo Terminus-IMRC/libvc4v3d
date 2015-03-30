@@ -9,11 +9,23 @@ const size_t V3D_LENGTH = 0x00f20 - 0x00000 + 32 / 8;
 
 void v3d_utils_init()
 {
+	static _Bool is_called = 0;
+
+	if (is_called)
+		return;
+	is_called = !0;
+
 	bcm_host_init();
 }
 
 void v3d_utils_finalize()
 {
+	static _Bool is_called = 0;
+
+	if (is_called)
+		return;
+	is_called = !0;
+
 	bcm_host_deinit();
 }
 
