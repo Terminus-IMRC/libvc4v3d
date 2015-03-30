@@ -6,6 +6,7 @@ OBJS := $(SRCS:%.c=%.c.o)
 DEPS := $(SRCS:%.c=%.c.d)
 ALLDEPS = $(MAKEFILE_LIST_SANS_DEPS)
 CFLAGS_LOCAL := -Wall -Wextra -O2
+LDLIBS_LOCAL := -lbcm_host
 
 CC := gcc
 RM := rm -f
