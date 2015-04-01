@@ -1,8 +1,12 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <inttypes.h>
+#include <errno.h>
+#include <sys/mman.h>
 #include "v3d_rw.h"
+#include "v3d_utils.h"
 #include "error.h"
 
 #define generate_mask(n, sr) ((((((n))>=32?0:(1<<((n))))-1)<<((sr))))
@@ -412,6 +416,11 @@ uint32_t v3d_read(uint32_t *p, v3d_field_name_t fname)
 		exit(EXIT_FAILURE);
 	}
 
+	if (msync(p, V3D_LENGTH, MS_SYNC | MS_INVALIDATE) == -1) {
+		error("msync: %s\n", strerror(errno));
+		exit(EXIT_FAILURE);
+	}
+
 	return (p[v3d_reg_addr_map[fname].offset] & v3d_reg_addr_map[fname].mask) >> v3d_reg_addr_map[fname].sr;
 }
 
@@ -429,4 +438,9 @@ void v3d_write(uint32_t *p, v3d_field_name_t fname, uint32_t value)
 	}
 
 	p[v3d_reg_addr_map[fname].offset] = (p[v3d_reg_addr_map[fname].offset] & (~v3d_reg_addr_map[fname].mask)) | (value << v3d_reg_addr_map[fname].sr);
+
+	if (msync(p, V3D_LENGTH, MS_SYNC | MS_INVALIDATE) == -1) {
+		error("msync: %s\n", strerror(errno));
+		exit(EXIT_FAILURE);
+	}
 }
