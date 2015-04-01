@@ -416,11 +416,6 @@ uint32_t v3d_read(uint32_t *p, v3d_field_name_t fname)
 		exit(EXIT_FAILURE);
 	}
 
-	if (msync(p, V3D_LENGTH, MS_SYNC | MS_INVALIDATE) == -1) {
-		error("msync: %s\n", strerror(errno));
-		exit(EXIT_FAILURE);
-	}
-
 	return (p[v3d_reg_addr_map[fname].offset] & v3d_reg_addr_map[fname].mask) >> v3d_reg_addr_map[fname].sr;
 }
 
@@ -438,9 +433,4 @@ void v3d_write(uint32_t *p, v3d_field_name_t fname, uint32_t value)
 	}
 
 	p[v3d_reg_addr_map[fname].offset] = (p[v3d_reg_addr_map[fname].offset] & (~v3d_reg_addr_map[fname].mask)) | (value << v3d_reg_addr_map[fname].sr);
-
-	if (msync(p, V3D_LENGTH, MS_SYNC | MS_INVALIDATE) == -1) {
-		error("msync: %s\n", strerror(errno));
-		exit(EXIT_FAILURE);
-	}
 }
