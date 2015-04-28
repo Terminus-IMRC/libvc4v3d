@@ -38,11 +38,15 @@ struct {
 
 void v3d_rw_init()
 {
+	int i;
 	static _Bool is_called = 0;
 
 	if (is_called)
 		return;
 	is_called = !0;
+
+	for (i = 0; i < V3D_NFNAME; i++)
+		v3d_reg_addr_map[i].name = NULL;
 
 	ram_add_node(TVER, 0x00000, 31, 24, RW_RO);
 	ram_add_node(IDSTR_V, 0x00000, 7, 0, RW_RO);
