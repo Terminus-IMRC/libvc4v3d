@@ -22,6 +22,7 @@ struct {
 	int offset;
 	uint32_t mask;
 	int sr;
+	v3d_field_name_t fname;
 	char *name;
 	rwtype_t rw;
 } v3d_reg_addr_map[V3D_NFNAME];
@@ -33,6 +34,7 @@ struct {
 	v3d_reg_addr_map[V3D_##fname_suf].offset = ((offset_in_byte))/(32/8); \
 	v3d_reg_addr_map[V3D_##fname_suf].mask = generate_mask_with_bit_range(((bit_from)), ((bit_to))); \
 	v3d_reg_addr_map[V3D_##fname_suf].sr = ((bit_to)); \
+	v3d_reg_addr_map[V3D_##fname_suf].fname = V3D_##fname_suf; \
 	v3d_reg_addr_map[V3D_##fname_suf].name = STR(V3D_##fname_suf); \
 	v3d_reg_addr_map[V3D_##fname_suf].rw = bit_rw;
 
