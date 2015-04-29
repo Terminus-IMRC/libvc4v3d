@@ -440,3 +440,18 @@ void v3d_write(uint32_t *p, v3d_field_name_t fname, uint32_t value)
 
 	p[v3d_reg_addr_map[fname].offset] = (p[v3d_reg_addr_map[fname].offset] & (~v3d_reg_addr_map[fname].mask)) | (value << v3d_reg_addr_map[fname].sr);
 }
+
+v3d_field_name_t v3d_str_to_reg(const char *name)
+{
+	int i;
+
+	for (i = 0; i < V3D_NFNAME; i++) {
+		if (v3d_reg_addr_map[i].name == NULL)
+			continue;
+		else if (!strcasecmp(v3d_reg_addr_map[i].name, name))
+			return v3d_reg_addr_map[i].fname;
+	}
+
+	error("no such field name: %s\n", name);
+	exit(EXIT_FAILURE);
+}

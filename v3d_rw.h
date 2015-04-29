@@ -91,5 +91,6 @@
 	void v3d_rw_finalize();
 	uint32_t v3d_read(uint32_t *p, v3d_field_name_t fname);
 	void v3d_write(uint32_t *p, v3d_field_name_t fname, uint32_t value);
+	v3d_field_name_t v3d_str_to_reg(const char *name);
 
 #endif /* _V3D_RW_H_INCLUDED_ */
