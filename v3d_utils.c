@@ -1,8 +1,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <bcm_host.h>
-#include "v3d_rw.h"
-#include "v3d_utils.h"
+#include "v3d.h"
 
 static const size_t V3D_OFFSET_FROM_PERI = 0x00c00000;
 const size_t V3D_LENGTH = 0x00f20 - 0x00000 + 32 / 8;

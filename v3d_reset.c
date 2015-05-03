@@ -1,6 +1,5 @@
 #include <stdint.h>
-#include "v3d_rw.h"
-#include "v3d_reset.h"
+#include "v3d.h"
 
 void v3d_reset_init()
 {
