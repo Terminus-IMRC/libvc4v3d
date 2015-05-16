@@ -421,7 +421,7 @@ uint32_t v3d_read(uint32_t *p, v3d_field_name_t fname)
 		exit(EXIT_FAILURE);
 	}
 
-	return (p[v3d_reg_addr_map[fname].offset] & v3d_reg_addr_map[fname].mask) >> v3d_reg_addr_map[fname].sr;
+	return (((volatile uint32_t*) p)[v3d_reg_addr_map[fname].offset] & v3d_reg_addr_map[fname].mask) >> v3d_reg_addr_map[fname].sr;
 }
 
 void v3d_write(uint32_t *p, v3d_field_name_t fname, uint32_t value)
@@ -437,7 +437,7 @@ void v3d_write(uint32_t *p, v3d_field_name_t fname, uint32_t value)
 		exit(EXIT_FAILURE);
 	}
 
-	p[v3d_reg_addr_map[fname].offset] = (p[v3d_reg_addr_map[fname].offset] & (~v3d_reg_addr_map[fname].mask)) | (value << v3d_reg_addr_map[fname].sr);
+	((volatile uint32_t*) p)[v3d_reg_addr_map[fname].offset] = (p[v3d_reg_addr_map[fname].offset] & (~v3d_reg_addr_map[fname].mask)) | (value << v3d_reg_addr_map[fname].sr);
 }
 
 v3d_field_name_t v3d_str_to_reg(const char *name)
