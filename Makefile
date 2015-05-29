@@ -5,7 +5,7 @@ SRCS := v3d.c v3d_rw.c v3d_reset.c v3d_utils.c
 OBJS := $(SRCS:%.c=%.c.o)
 DEPS := $(SRCS:%.c=%.c.d)
 ALLDEPS = $(MAKEFILE_LIST_SANS_DEPS)
-CFLAGS_LOCAL := -Wall -Wextra -O2
+CFLAGS_LOCAL := -Wall -Wextra -O2 -g
 LDLIBS_LOCAL := -lbcm_host
 
 CC := gcc
