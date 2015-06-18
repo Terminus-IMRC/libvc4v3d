@@ -72,22 +72,22 @@ void v3d_rw_init()
 	ram_add_node(L2CDIS, 0x00020, 1, 1, RW_WO);
 	ram_add_node(L2CENA, 0x00020, 0, 0, RW_RW);
 
-	ram_add_node(T1CCS0, 0x00024, 27, 27, RW_RO);
-	ram_add_node(T1CCS1, 0x00024, 26, 26, RW_RO);
-	ram_add_node(T1CCS2, 0x00024, 25, 25, RW_RO);
-	ram_add_node(T1CCS3, 0x00024, 24, 24, RW_RO);
-	ram_add_node(T0CCS0, 0x00024, 19, 19, RW_RO);
-	ram_add_node(T0CCS1, 0x00024, 18, 18, RW_RO);
-	ram_add_node(T0CCS2, 0x00024, 17, 17, RW_RO);
-	ram_add_node(T0CCS3, 0x00024, 16, 16, RW_RO);
-	ram_add_node(UCCS0, 0x00024, 11, 11, RW_RO);
-	ram_add_node(UCCS1, 0x00024, 10, 10, RW_RO);
-	ram_add_node(UCCS2, 0x00024, 9, 9, RW_RO);
-	ram_add_node(UCCS3, 0x00024, 8, 8, RW_RO);
-	ram_add_node(ICCS0, 0x00024, 3, 3, RW_RO);
-	ram_add_node(ICCS1, 0x00024, 2, 2, RW_RO);
-	ram_add_node(ICCS2, 0x00024, 1, 1, RW_RO);
-	ram_add_node(ICCS3, 0x00024, 0, 0, RW_RO);
+	ram_add_node(T1CCS0, 0x00024, 27, 27, RW_WO);
+	ram_add_node(T1CCS1, 0x00024, 26, 26, RW_WO);
+	ram_add_node(T1CCS2, 0x00024, 25, 25, RW_WO);
+	ram_add_node(T1CCS3, 0x00024, 24, 24, RW_WO);
+	ram_add_node(T0CCS0, 0x00024, 19, 19, RW_WO);
+	ram_add_node(T0CCS1, 0x00024, 18, 18, RW_WO);
+	ram_add_node(T0CCS2, 0x00024, 17, 17, RW_WO);
+	ram_add_node(T0CCS3, 0x00024, 16, 16, RW_WO);
+	ram_add_node(UCCS0, 0x00024, 11, 11, RW_WO);
+	ram_add_node(UCCS1, 0x00024, 10, 10, RW_WO);
+	ram_add_node(UCCS2, 0x00024, 9, 9, RW_WO);
+	ram_add_node(UCCS3, 0x00024, 8, 8, RW_WO);
+	ram_add_node(ICCS0, 0x00024, 3, 3, RW_WO);
+	ram_add_node(ICCS1, 0x00024, 2, 2, RW_WO);
+	ram_add_node(ICCS2, 0x00024, 1, 1, RW_WO);
+	ram_add_node(ICCS3, 0x00024, 0, 0, RW_WO);
 
 	ram_add_node(INT_SPILLUSE, 0x00030, 3, 3, RW_RW);
 	ram_add_node(INT_OUTTOMEM, 0x00030, 2, 2, RW_RW);
