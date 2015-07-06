@@ -394,6 +394,22 @@ uint32_t v3d_read(uint32_t *p, v3d_field_name_t fname)
 	return (((volatile uint32_t*) p)[v3d_reg_addr_map[fname].offset] & v3d_reg_addr_map[fname].mask) >> v3d_reg_addr_map[fname].sr;
 }
 
+void v3d_write_raw(uint32_t *p, v3d_field_name_t fname, uint32_t value)
+{
+	if ((fname < 0) || (fname >= V3D_NFNAME)) {
+		error("field name out of range: %d\n", fname);
+		exit(EXIT_FAILURE);
+	} else if (v3d_reg_addr_map[fname].rw == RW_RO) {
+		error("read only register: %s\n", v3d_reg_addr_map[fname].name);
+		exit(EXIT_FAILURE);
+	} else if (value > (v3d_reg_addr_map[fname].mask >> v3d_reg_addr_map[fname].sr)) {
+		error("too big value for the register %s: %"PRIu32"\n", v3d_reg_addr_map[fname].name, value);
+		exit(EXIT_FAILURE);
+	}
+
+	((volatile uint32_t*) p)[v3d_reg_addr_map[fname].offset] = value;
+}
+
 void v3d_write(uint32_t *p, v3d_field_name_t fname, uint32_t value)
 {
 	if ((fname < 0) || (fname >= V3D_NFNAME)) {
@@ -407,7 +423,7 @@ void v3d_write(uint32_t *p, v3d_field_name_t fname, uint32_t value)
 		exit(EXIT_FAILURE);
 	}
 
-	((volatile uint32_t*) p)[v3d_reg_addr_map[fname].offset] = (p[v3d_reg_addr_map[fname].offset] & (~v3d_reg_addr_map[fname].mask)) | (value << v3d_reg_addr_map[fname].sr);
+	v3d_write_raw(p, fname, (p[v3d_reg_addr_map[fname].offset] & (~v3d_reg_addr_map[fname].mask)) | (value << v3d_reg_addr_map[fname].sr));
 }
 
 v3d_field_name_t v3d_str_to_reg(const char *name)
