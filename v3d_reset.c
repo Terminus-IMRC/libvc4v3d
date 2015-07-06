@@ -259,42 +259,12 @@ void v3d_reset_VPMBASE(uint32_t *p)
 
 void v3d_reset_PCTRC(uint32_t *p)
 {
-	v3d_write(p, V3D_CTCLR15, 0);
-	v3d_write(p, V3D_CTCLR14, 0);
-	v3d_write(p, V3D_CTCLR13, 0);
-	v3d_write(p, V3D_CTCLR12, 0);
-	v3d_write(p, V3D_CTCLR11, 0);
-	v3d_write(p, V3D_CTCLR10, 0);
-	v3d_write(p, V3D_CTCLR9, 0);
-	v3d_write(p, V3D_CTCLR8, 0);
-	v3d_write(p, V3D_CTCLR7, 0);
-	v3d_write(p, V3D_CTCLR6, 0);
-	v3d_write(p, V3D_CTCLR5, 0);
-	v3d_write(p, V3D_CTCLR4, 0);
-	v3d_write(p, V3D_CTCLR3, 0);
-	v3d_write(p, V3D_CTCLR2, 0);
-	v3d_write(p, V3D_CTCLR1, 0);
-	v3d_write(p, V3D_CTCLR0, 0);
+	v3d_write(p, V3D_CTCLR, 0);
 }
 
 void v3d_reset_PCTRE(uint32_t *p)
 {
-	v3d_write(p, V3D_CTEN15, 0);
-	v3d_write(p, V3D_CTEN14, 0);
-	v3d_write(p, V3D_CTEN13, 0);
-	v3d_write(p, V3D_CTEN12, 0);
-	v3d_write(p, V3D_CTEN11, 0);
-	v3d_write(p, V3D_CTEN10, 0);
-	v3d_write(p, V3D_CTEN9, 0);
-	v3d_write(p, V3D_CTEN8, 0);
-	v3d_write(p, V3D_CTEN7, 0);
-	v3d_write(p, V3D_CTEN6, 0);
-	v3d_write(p, V3D_CTEN5, 0);
-	v3d_write(p, V3D_CTEN4, 0);
-	v3d_write(p, V3D_CTEN3, 0);
-	v3d_write(p, V3D_CTEN2, 0);
-	v3d_write(p, V3D_CTEN1, 0);
-	v3d_write(p, V3D_CTEN0, 0);
+	v3d_write(p, V3D_CTEN, 0);
 }
 
 void v3d_reset_PCTRn(uint32_t *p)
