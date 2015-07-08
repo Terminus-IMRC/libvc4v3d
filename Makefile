@@ -1,14 +1,17 @@
 all:
 
-TARGET := libvc4v3d.so
+TARGET := libvc4v3d.so libvc4v3d.a
 SRCS := v3d.c v3d_rw.c v3d_reset.c v3d_utils.c
 OBJS := $(SRCS:%.c=%.c.o)
 DEPS := $(SRCS:%.c=%.c.d)
 ALLDEPS = $(MAKEFILE_LIST_SANS_DEPS)
 CFLAGS_LOCAL := -Wall -Wextra -O2 -g
 LDLIBS_LOCAL := -lbcm_host
+ARFLAGS := cr
 
 CC := gcc
+AR := ar
+RANLIB := ranlib
 RM := rm -f
 
 VALID_MAKECMDGOALS := all $(TARGET) %.c.d %.c.o clean
@@ -34,6 +37,10 @@ COMPILE.c = $(CC) $(CFLAGS) $(CFLAGS_LOCAL) $(EXTRACFLAGS) $(CPPFLAGS) $(EXTRACP
 COMPILE.d = $(CC) $(CFLAGS) $(CFLAGS_LOCAL) $(EXTRACFLAGS) $(CPPFLAGS) $(EXTRACPPFLAGS) $(TARGET_ARCH) -M -MP -MT $<.o -MF $@
 
 all: $(TARGET)
+
+%.a: $(OBJS) $(ALLDEPS)
+	$(AR) $(ARFLAGS) $@ $(OBJS)
+	$(RANLIB) $@
 
 %.so: $(OBJS) $(ALLDEPS)
 	$(COMPILE.o) $(OUTPUT_OPTION) $(OBJS) $(LOADLIBES) $(LDLIBS) $(LDLIBS_LOCAL)
