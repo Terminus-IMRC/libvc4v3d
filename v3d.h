@@ -88,15 +88,10 @@
 		/* 0x00f20 */ V3D_L2CARE, V3D_VCMBE, V3D_VCMRE, V3D_VCDI, V3D_VCDE, V3D_VDWE, V3D_VPMEAS, V3D_VPMEFNA, V3D_VPMEWNA, V3D_VPMERNA, V3D_VPMERR, V3D_VPMEWR, V3D_VPAERRGL, V3D_VPAEBRGL, V3D_VPAERGS, V3D_VPAEABB,
 	} v3d_field_name_t;
 
-	void v3d_rw_init();
-	void v3d_rw_finalize();
 	uint32_t v3d_read(uint32_t *p, v3d_field_name_t fname);
 	void v3d_write_raw(uint32_t *p, v3d_field_name_t fname, uint32_t value);
 	void v3d_write(uint32_t *p, v3d_field_name_t fname, uint32_t value);
 	v3d_field_name_t v3d_str_to_reg(const char *name);
-
-	void v3d_reset_init();
-	void v3d_reset_finalize();
 
 	void v3d_reset_all(uint32_t *p);
 
@@ -183,8 +178,6 @@
 
 	extern const size_t V3D_LENGTH;
 
-	void v3d_utils_init();
-	void v3d_utils_finalize();
 	_Bool is_qpu_enabled(uint32_t *p);
 	unsigned v3d_peripheral_addr();
 
