@@ -206,7 +206,9 @@ void v3d_rw_init()
 
 	ram_add_node(CTCLR, 0x00670, 15, 0, RW_WO);
 
-	ram_add_node(CTEN, 0x00674, 15, 0, RW_RW);
+	/* NOTICE: This width is not the value on the manual */
+	/* See http://vc4-notes.tumblr.com/post/123367694634/performance-counters-of-qpu-may-not-be-supported for a report */
+	ram_add_node(CTEN, 0x00674, 31, 0, RW_RW);
 
 	ram_add_node(PCTR0, 0x00680, 31, 0, RW_RW);
 
