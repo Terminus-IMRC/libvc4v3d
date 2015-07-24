@@ -1,4 +1,5 @@
 #include "v3d.h"
+#include "v3d_local.h"
 
 void v3d_init()
 {

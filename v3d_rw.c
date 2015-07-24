@@ -6,6 +6,7 @@
 #include <errno.h>
 #include <sys/mman.h>
 #include "v3d.h"
+#include "v3d_local.h"
 #include "error.h"
 
 #define generate_mask(n, sr) ((((((n))>=32?0:(1<<((n))))-1)<<((sr))))
