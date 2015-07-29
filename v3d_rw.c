@@ -69,6 +69,7 @@ void v3d_rw_init()
 
 	ram_add_node(SCRATCH, 0x00010, 31, 0, RW_RW);
 
+	ram_add_node(L2CACTL, 0x00020, 2, 0, RW_RW);
 	ram_add_node(L2CCLR, 0x00020, 2, 2, RW_WO);
 	ram_add_node(L2CDIS, 0x00020, 1, 1, RW_WO);
 	ram_add_node(L2CENA, 0x00020, 0, 0, RW_RW);
