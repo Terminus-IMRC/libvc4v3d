@@ -3,8 +3,6 @@
 
 	void v3d_rw_init();
 	void v3d_rw_finalize();
-	void v3d_reset_init();
-	void v3d_reset_finalize();
 	void v3d_utils_init();
 	void v3d_utils_finalize();
 

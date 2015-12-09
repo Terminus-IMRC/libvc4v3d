@@ -1,7 +1,7 @@
 all:
 
 TARGET := libvc4v3d.so libvc4v3d.a
-SRCS := v3d.c v3d_rw.c v3d_reset.c v3d_utils.c
+SRCS := v3d.c v3d_rw.c v3d_utils.c
 OBJS := $(SRCS:%.c=%.c.o)
 DEPS := $(SRCS:%.c=%.c.d)
 ALLDEPS = $(MAKEFILE_LIST_SANS_DEPS)
